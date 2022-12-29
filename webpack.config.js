@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const yaml = require("yamljs");
 const toml = require("toml");
 const json5 = require("json5");
@@ -32,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -81,9 +83,12 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
     }),
+    new MiniCssExtractPlugin(),
   ],
 
   optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
     splitChunks: {
       chunks: "all", // merge common deps into an entry chunk
     },
