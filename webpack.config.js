@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const yaml = require("yamljs");
 const toml = require("toml");
 const json5 = require("json5");
+const webpack = require("webpack");
 
 const cssRegExp = /\.css$/i;
 const imageRegExp = /\.(png|svg|gif|jpe?g)$/i;
@@ -12,6 +13,7 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
+
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].bundle.js",
@@ -42,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components)/i,
         loader: "babel-loader",
         options: {
           presets: ["@babel/env"],
@@ -76,19 +78,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public/index.html"),
     }),
+    new webpack.ProvidePlugin({
+      React: "react",
+    }),
   ],
 
   optimization: {
-    runtimeChunk: "single",
-    moduleIds: "deterministic",
     splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          chunks: "all",
-        },
-      },
+      chunks: "all", // merge common deps into an entry chunk
     },
   },
 };
