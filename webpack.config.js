@@ -83,7 +83,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin(), 
   ],
 
   optimization: {
