@@ -9,6 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://katongole-isaac.github.io/three-colum-grid/",
   "keywords": [],
   "author": "",
   "license": "ISC",

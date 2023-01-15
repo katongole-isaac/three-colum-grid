@@ -79,11 +79,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public/index.html"),
+      title: "Three Column Grid",
+      favicon: path.resolve(
+        __dirname,
+        "src/instructions/images/favicon-32x32.png"
+      ),
     }),
     new webpack.ProvidePlugin({
       React: "react",
     }),
-    new MiniCssExtractPlugin(), 
+    new MiniCssExtractPlugin(),
   ],
 
   optimization: {

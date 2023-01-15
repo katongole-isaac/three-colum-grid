@@ -1,0 +1,93 @@
+.card-wrapper {
+  padding: 2em;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+}
+.card-actions {
+  position: absolute;
+  bottom: 30px;
+}
+
+.btn {
+  padding: 1em;
+  background: var(--VeryLightGray);
+  border-radius: 30px;
+  width: 180px;
+  border: none;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: none;
+  border: 1px solid #fff;
+}
+
+.card-header > h3 {
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.card-header > p {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  line-height: 2em;
+}
+
+.card-content {
+  height: 100%;
+  position: relative;
+}
+
+.card-bg-orange {
+  background: var(--BrightOrange);
+}
+.card-bg-dark-cyan {
+  background: var(--DarkCyan);
+}
+
+.card-bg-very-dark-cyan {
+  background: var(--VeryDarkCyan);
+}
+
+.card-bg-orange .btn {
+  color: var(--BrightOrange);
+}
+.card-bg-orange .btn:hover,
+.card-bg-very-dark-cyan .btn:hover,
+.card-bg-dark-cyan .btn:hover {
+  color: #fff;
+}
+
+.card-bg-dark-cyan .btn {
+  color: var(--DarkCyan);
+}
+
+.card-bg-very-dark-cyan .btn {
+  color: var(--VeryDarkCyan);
+}
+
+@media only screen and (max-width: 576px) {
+  .card-actions {
+    position: relative;
+    bottom: 0;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 670px) {
+  .card-actions {
+    position: relative;
+    bottom: 0;
+  }
+  .btn {
+    width: 100%;
+  }
+
+  .card-header > p {
+    line-height: 1.5em;
+  }
+}

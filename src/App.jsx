@@ -1,15 +1,14 @@
 import React from "react";
 import "./app.css";
-import data from "./data.toml";
+import CardList from "./components/cardList";
 
 export default function () {
   return (
     <>
-      <div>
-        <h2>Welcome to react</h2>
-      </div>
-      <div className="footer">
-        <p>Developed by {data.name} </p>
+      <div className="wrapper">
+        <div className="container">
+          <CardList />
+        </div>
       </div>
     </>
   );
